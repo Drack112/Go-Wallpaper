@@ -3,50 +3,50 @@
 </h1>
 
 <p align="center">
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-rodando">Rodando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-rodando">Running</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-contribuir">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
 
 <a id="-projeto"></a>
 
-## 💻 Projeto
+## 💻 Project
 
-Um projeto simples que tem como função utilizar o go como um Scrapper (Colly) para fazer Download de Wallpapers do site https://www.wallpaperflare.com/.
+A simple project that aims to use Go as a Scrapper (Colly) for downloading wallpapers from https://www.wallpaperflare.com/.
 
-Atualmente está em **desenvolvimento** mas está aberto ao publico poder usar, testar e ajudar no desenvolvimento.
+Currently it is on **development** but it's open for use, testing and help on code.
 
 <a id="-layout"></a>
 
 <a id="-rodando"></a>
 
-## Executando o Go-Wallpaper 🌇
+## 🌇 Running Go-Wallpaper
 
-##### Apenas baixe o executável que está na página de [Releases](https://github.com/Drack112/Go-Wallpaper/releases).
+##### Simply download the executable from [Releases Page](https://github.com/Drack112/Go-Wallpaper/releases).
 
-Uma documentação para a instalação está sendo criada.
+A documentation for the installation is being created.
 
-## Executando em desenvolvimento 🌆
+## 🌆 Running in Development
 
-## Requerimentos:
+## Requirements:
 
 - [Golang](https://go.dev/)
 
-## 📂 Instalando as dependências:
+## 📂 Installing dependencies:
 
 ```bash
 go mod download
 ```
 
-Para limpar dependências inúteis
+🧹 For cleaning useless dependencies
 
 ```bash
 go mod tidy
 ```
 
-🚀 Com tudo pronto apenas execute o comando:
+🚀 With all set execute the command:
 
 ```bash
 go run main.go
@@ -54,11 +54,11 @@ go run main.go
 
 <a id="-como-contribuir"></a>
 
-## 🤔 Como contribuir
+## 🤔 How to contribute
 
-- Faça um fork desse repositório;
-- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
-- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
-- Faça push para a sua branch: `git push origin minha-feature`.
+- Fork this repository and clone it:
+- Create a branch with your fetuare: `git checkout -b my-feature`;
+- Commit your changes: `git commit -m 'feat: My new feature'`;
+- Do a push to your branch: `git push origin my-feature`.
 
-Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
+After your Pull Request merge is done, you can delete your branch.
