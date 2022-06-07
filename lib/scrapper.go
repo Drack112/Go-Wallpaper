@@ -38,7 +38,7 @@ func GetRequest(link string) {
     })
 
     c.OnScraped(func(r *colly.Response) {
-        log.Print("Scrapper has finished the job.")
+        log.Print("Scrapper finalizado.")
     })
 
     c.OnHTML("li", func(e *colly.HTMLElement) {

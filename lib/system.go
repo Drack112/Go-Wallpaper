@@ -39,7 +39,13 @@ func cleanTerminal(command string) string {
     out, err := exec.Command(command).Output()
 
     if err != nil {
-        panic(err.Error())
+        fmt.Print("Operação cancelada! Aparentemente, o comando pata limpar o terminal deu problema.\n")
+        fmt.Print("Reveja se sua env GOOS está correta ao seu sistema operacional.\n")
+        fmt.Print("Se o bug continuar abra uma issue em: https://github.com/Drack112/Go-Wallpaper/issues\n")
+        fmt.Print(" ")
+
+        fmt.Print("log Error: \n")
+        panic(err)
     }
 
     return string(out)

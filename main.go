@@ -9,14 +9,13 @@ import (
 )
 
 var (
-    category string
-    link     string
+    link string
 )
 
-func init() {
+func main() {
 
-    category = ""
     link = ""
+    category := ""
 
     promptInput := &survey.Input{
         Message: "Please, type the category of the wallpaper to init the scrapper: ",
@@ -27,12 +26,9 @@ func init() {
     err := survey.AskOne(promptInput, &category)
 
     if err != nil {
-        panic(err.Error())
+        fmt.Print("Operação cancelada! Erro Abaixo: \n")
+        panic(err)
     }
-
-}
-
-func main() {
 
     category = strings.ToLower(category)
     formatCategory := strings.ReplaceAll(category, " ", "%20")
