@@ -1,7 +1,7 @@
 package lib
 
 import (
-    "fmt"
+    "runtime"
 
     "github.com/gocolly/colly"
     "github.com/sirupsen/logrus"
@@ -10,14 +10,15 @@ import (
 
 var log = logrus.New()
 
+var GOOS string
+
 func init() {
+
+    GOOS = runtime.GOOS
+
     formatter := new(prefixed.TextFormatter)
 
     formatter.FullTimestamp = true
-    formatter.SetColorScheme(&prefixed.ColorScheme{
-        PrefixStyle:    "blue+b",
-        TimestampStyle: "white+h",
-    })
     formatter.ForceFormatting = true
 
     log.Level = logrus.DebugLevel
@@ -27,12 +28,13 @@ func GetRequest(link string) {
     c := colly.NewCollector()
 
     c.OnError(func(r *colly.Response, err error) {
-        log.Fatal("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
+        log.Fatal("Request URL: ", r.Request.URL, "failed with response: ", r, "\nError: ", err)
     })
 
     c.OnResponse(func(r *colly.Response) {
-        fmt.Print("\033[2J")
-        log.Print("URL atual -> ", r.Request.URL.String(), "\n")
+
+        systemScrapper(GOOS)
+        log.Print("Página dos wallpapers -> ", r.Request.URL.String(), "\n")
     })
 
     c.OnScraped(func(r *colly.Response) {
