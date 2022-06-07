@@ -44,7 +44,7 @@ func cleanTerminal(command string) string {
         fmt.Print("Se o bug continuar abra uma issue em: https://github.com/Drack112/Go-Wallpaper/issues\n")
         fmt.Print(" ")
 
-        fmt.Print("log Error: \n")
+        fmt.Print("Log Error: \n")
         panic(err)
     }
 

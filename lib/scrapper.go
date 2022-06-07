@@ -1,6 +1,7 @@
 package lib
 
 import (
+    "fmt"
     "runtime"
 
     "github.com/gocolly/colly"
@@ -35,6 +36,7 @@ func GetRequest(link string) {
 
         systemScrapper(GOOS)
         log.Print("Página dos wallpapers -> ", r.Request.URL.String(), "\n")
+        fmt.Print(" ")
     })
 
     c.OnScraped(func(r *colly.Response) {
