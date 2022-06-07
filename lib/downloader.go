@@ -17,13 +17,13 @@ var (
 )
 
 func init() {
+
+    fileName = ""
+    fullUrlFile = ""
+
     formatter := new(prefixed.TextFormatter)
 
     formatter.FullTimestamp = true
-    formatter.SetColorScheme(&prefixed.ColorScheme{
-        PrefixStyle:    "blue+b",
-        TimestampStyle: "white+h",
-    })
     formatter.ForceFormatting = true
 
     log.Level = logrus.DebugLevel
@@ -33,7 +33,7 @@ func Downloader(link string) {
     c := colly.NewCollector()
 
     c.OnHTML("section", func(h *colly.HTMLElement) {
-        h.ForEach("#show_img", func(i int, img *colly.HTMLElement) {
+        go h.ForEach("#show_img", func(i int, img *colly.HTMLElement) {
             url := img.Attr("src")
 
             fullUrlFile = url
@@ -52,11 +52,11 @@ func Downloader(link string) {
             }
             defer file.Close()
 
-            n, e := file.ReadFrom(response.Body)
+            _, e := file.ReadFrom(response.Body)
             if e != nil {
                 panic(e)
             }
-            log.Warn("File size: ", n)
+
         })
     })
 

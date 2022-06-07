@@ -8,28 +8,32 @@ import (
     "github.com/Drack112/Go-Wallpaper/lib"
 )
 
-var category string
-
-func init() {
-
-    category = ""
-
-    promptInput := &survey.Input{
-        Message: "Please, type the category of the wallpaper to init the scrapper: ",
-        Default: "Vaporwave",
-        Help:    "Example: Vaporwave, Attack on titan, Initial D, Cyberpunk 2077",
-    }
-
-    survey.AskOne(promptInput, &category)
-
-}
+var (
+    link string
+)
 
 func main() {
 
-    lowerCategory := strings.ToLower(category)
-    removeSpaces := strings.ReplaceAll(lowerCategory, " ", "%20")
+    link = ""
+    category := ""
 
-    link := fmt.Sprintf("https://www.wallpaperflare.com/search?wallpaper=%s", removeSpaces)
+    promptInput := &survey.Input{
+        Message: "Por favor digite uma tag de wallpaper que deseja: ",
+        Default: "Vaporwave",
+        Help:    "Exemplos: Aesthetic, Attack on titan, Initial D, Cyberpunk 2077",
+    }
+
+    err := survey.AskOne(promptInput, &category)
+
+    if err != nil {
+        fmt.Print("Operação cancelada! Erro Abaixo: \n")
+        panic(err)
+    }
+
+    category = strings.ToLower(category)
+    formatCategory := strings.ReplaceAll(category, " ", "%20")
+
+    link = fmt.Sprintf("https://www.wallpaperflare.com/search?wallpaper=%s", formatCategory)
 
     lib.GetRequest(link)
 
