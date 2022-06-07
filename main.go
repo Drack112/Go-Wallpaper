@@ -18,9 +18,9 @@ func main() {
     category := ""
 
     promptInput := &survey.Input{
-        Message: "Please, type the category of the wallpaper to init the scrapper: ",
+        Message: "Por favor digite uma tag de wallpaper que deseja: ",
         Default: "Vaporwave",
-        Help:    "Example: Aesthetic, Attack on titan, Initial D, Cyberpunk 2077",
+        Help:    "Exemplos: Aesthetic, Attack on titan, Initial D, Cyberpunk 2077",
     }
 
     err := survey.AskOne(promptInput, &category)

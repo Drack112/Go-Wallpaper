@@ -28,7 +28,7 @@ func GetRequest(link string) {
     c := colly.NewCollector()
 
     c.OnError(func(r *colly.Response, err error) {
-        log.Fatal("Request URL: ", r.Request.URL, "failed with response: ", r, "\nError: ", err)
+        log.Fatal("URL: ", r.Request.URL, "falhou com a response: ", r, "\nError: ", err)
     })
 
     c.OnResponse(func(r *colly.Response) {
