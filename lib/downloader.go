@@ -33,7 +33,7 @@ func Downloader(link string) {
     c := colly.NewCollector()
 
     c.OnHTML("section", func(h *colly.HTMLElement) {
-        go h.ForEach("#show_img", func(i int, img *colly.HTMLElement) {
+        h.ForEach("#show_img", func(i int, img *colly.HTMLElement) {
             url := img.Attr("src")
 
             fullUrlFile = url
