@@ -1,7 +1,6 @@
 package lib
 
 import (
-    "fmt"
     "runtime"
 
     "github.com/gocolly/colly"
@@ -11,11 +10,7 @@ import (
 
 var log = logrus.New()
 
-var GOOS string
-
 func init() {
-
-    GOOS = runtime.GOOS
 
     formatter := new(prefixed.TextFormatter)
 
@@ -34,9 +29,8 @@ func GetRequest(link string) {
 
     c.OnResponse(func(r *colly.Response) {
 
-        systemScrapper(GOOS)
+        SystemCleanTerminal(runtime.GOOS)
         log.Print("Página dos wallpapers -> ", r.Request.URL.String(), "\n")
-        fmt.Print(" ")
     })
 
     c.OnScraped(func(r *colly.Response) {
