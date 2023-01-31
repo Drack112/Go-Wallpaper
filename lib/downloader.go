@@ -2,13 +2,9 @@ package lib
 
 import (
     "net/http"
-    "net/url"
     "os"
-    "strings"
 
     "github.com/gocolly/colly"
-    "github.com/sirupsen/logrus"
-    prefixed "github.com/x-cray/logrus-prefixed-formatter"
 )
 
 var (
@@ -16,20 +12,11 @@ var (
     fullUrlFile string
 )
 
-func init() {
+func Downloader(link string) {
 
     fileName = ""
     fullUrlFile = ""
 
-    formatter := new(prefixed.TextFormatter)
-
-    formatter.FullTimestamp = true
-    formatter.ForceFormatting = true
-
-    log.Level = logrus.DebugLevel
-}
-
-func Downloader(link string) {
     c := colly.NewCollector()
 
     c.OnHTML("section", func(h *colly.HTMLElement) {
@@ -61,17 +48,4 @@ func Downloader(link string) {
     })
 
     c.Visit(link + "/download")
-}
-
-func buildFileName() {
-    fileUrl, err := url.Parse(fullUrlFile)
-    if err != nil {
-        panic(err)
-    }
-
-    path := fileUrl.Path
-    segments := strings.Split(path, "/")
-
-    fileName = segments[len(segments)-1]
-    log.Print(fileName)
 }
