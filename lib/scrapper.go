@@ -31,4 +31,5 @@ func GetRequest(link string) {
     })
 
     c.Visit(link)
+
 }
