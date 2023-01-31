@@ -4,21 +4,7 @@ import (
     "runtime"
 
     "github.com/gocolly/colly"
-    "github.com/sirupsen/logrus"
-    prefixed "github.com/x-cray/logrus-prefixed-formatter"
 )
-
-var log = logrus.New()
-
-func init() {
-
-    formatter := new(prefixed.TextFormatter)
-
-    formatter.FullTimestamp = true
-    formatter.ForceFormatting = true
-
-    log.Level = logrus.DebugLevel
-}
 
 func GetRequest(link string) {
     c := colly.NewCollector()
