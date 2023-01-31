@@ -9,13 +9,14 @@ import (
 )
 
 var (
-    link string
+    link     string
+    category string
 )
 
 func main() {
 
     link = ""
-    category := ""
+    category = ""
 
     promptInput := &survey.Input{
         Message: "Por favor digite uma tag de wallpaper que deseja: ",
